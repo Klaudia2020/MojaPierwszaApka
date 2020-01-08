@@ -1,20 +1,38 @@
 import React, {Component} from 'react';
-import {Button, StyleSheet, View, StatusBar, Text, Image} from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image} from 'react-native';
+import Button from 'apsl-react-native-button';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Witam w mojej apce - Klaudia',
+    // title: 'Witam w mojej apce - Klaudia',
+    // headerStyle: {
+    //   backgroundColor: '#BBDEFB',
+    // },
+    header: null,
+    };
+    state = {
+      screenHeight: 0,
   };
   render() {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
+        <View style={styles.stylKlaudii}>
+      <View style={styles.stylKlaudii2}>    
+        <Text>Fuck You</Text>
+      </View>
+          <Text style={styles.tekstKlaudii}>to jest pole stylu stylKlaudii</Text>
+        </View>
+       
+        <Button 
+        style={{backgroundColor: 'purple'}} 
+        textStyle={{fontSize: 18, color: 'pink'}}
+        onPress={() => navigate('Profile', {name: 'Claudia'})}
+        >
+          Hello!
+        </Button>
 
-        <Button
-          title="Go to Klaudia's profile"
-          onPress={() => navigate('Profile', {name: 'Claudia'})}
-        />
       </View>
     );
   }
@@ -22,16 +40,33 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ccc',
+    backgroundColor: 'cornflowerblue',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+
+
+  
+  stylKlaudii2: {
+    backgroundColor: '#F78DA7',
+    width: 80,
+    height: 30
+
+  },
+  stylKlaudii: {
+    flex: 1,
+    backgroundColor: '#BBDEFB',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    margin: 40,
+    width:'80%'
   },
-  body: {
-    backgroundColor: 'white',
+  tekstKlaudii: {
+    color: 'black'
   },
   myPicture: {
     width: 200,
-    height: 400,
+    height: 400
   },
   headerText: {
     fontSize: 30,
